@@ -1,0 +1,29 @@
+package #packageName#;
+		
+import org.junit.Before;
+import org.junit.Test;
+
+import #packageName#.#className#TestDriver;
+
+#imports#
+
+/**
+ * JUnit test case generated from the file #className#.natspec. 
+ *
+ * PLEASE do not modify this file. It will be overwritten by any changes
+ * in #className#.natspec. 
+ */
+public class #className# {
+
+	private #className#TestDriver testDriver;
+
+	@Test
+	public void executeScript() throws Exception {
+		#methodBody#
+	}
+	
+	@Before
+	public void setUp() {
+		testDriver = new #className#TestDriver();
+	}
+}
