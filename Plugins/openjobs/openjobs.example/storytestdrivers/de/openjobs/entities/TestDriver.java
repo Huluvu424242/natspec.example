@@ -3,9 +3,9 @@ package de.openjobs.entities;
 import junit.framework.Assert;
 import de.devboost.natspec.annotations.TextSyntax;
 
-public class StoryBewerbenTestDriver {
+public class TestDriver {
 
-	public StoryBewerbenTestDriver() {
+	public TestDriver() {
 		super();
 	}
 
@@ -16,7 +16,7 @@ public class StoryBewerbenTestDriver {
 	}
 
 	@TextSyntax("Das Ergebnis ist ein Artefakt.")
-	public void assertNotNull(Object ergebnis) {
+	public void istEinArtefakt(Object ergebnis) {
 		Assert.assertNotNull(ergebnis);
 	}
 
