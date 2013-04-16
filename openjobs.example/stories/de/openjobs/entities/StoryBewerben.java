@@ -23,12 +23,12 @@ public class StoryBewerben {
 		de.openjobs.entities.Stellenangebot stellenangebot_ = testDriver.createStellenangebot();
 		// Das Ergebnis ist ein Artefakt. 
 		testDriver.istEinArtefakt(stellenangebot_);
+		// Die Anzahl der Stellen vom Stellenangebot wird auf 1 begrenzt. 
+		testDriver.setzeMaxAnzahlStellen(stellenangebot_, 1);
 		// Das Stellenangebot kann auf 1 Stelle(n) vermittelt werden. 
-		testDriver.vermittelbarAufStellen(1);
+		testDriver.vermittelbarAufStellen(stellenangebot_, 1);
 		// Der Arbeitssuchende erstellt ein Stellengesuch. 
 		de.openjobs.entities.Stellengesuch stellengesuch_ = testDriver.createStellengesuch();
-		// Das Ergebnis ist ein Artefakt. 
-		testDriver.istEinArtefakt(stellengesuch_);
 		// Das Ergebnis ist ein Artefakt. 
 		testDriver.istEinArtefakt(stellengesuch_);
 		

@@ -21,14 +21,15 @@ public class TestDriver {
 	}
 
 
-	@TextSyntax("Die Anzahl der Stellen wird auf #1 begrenzt.")
+	@TextSyntax("Die Anzahl der Stellen vom Stellenangebot wird auf #2 begrenzt.")
 	public void setzeMaxAnzahlStellen(Stellenangebot stellenangebot,Integer anzahl) {
 		stellenangebot.setAnzahlStellen(anzahl);
 	}
 
-	@TextSyntax("Das Stellenangebot kann auf #1 Stelle(n) vermittelt werden.")
-	public void vermittelbarAufStellen(Integer anzahl) {
-		Assert.assertTrue(false);
+	@TextSyntax("Das Stellenangebot kann auf #2 Stelle(n) vermittelt werden.")
+	public void vermittelbarAufStellen(Stellenangebot stellenangebot,Integer anzahl) {
+		final Integer stellen=stellenangebot.getAnzahlStellen();
+		Assert.assertEquals(anzahl, stellen);
 	}
 
 	@TextSyntax("Der Arbeitssuchende erstellt ein Stellengesuch.")
@@ -40,13 +41,17 @@ public class TestDriver {
 	public void istEinArtefakt(Stellengesuch ergebnis) {
 		Assert.assertNotNull(ergebnis);
 	}
-
 	
 	@TextSyntax("Der Arbeitssuchende erstellt eine Bewerbung zu einem Stellenangebot.")
-	public Bewerbung createBewerbung(Stellenangebot stellenangebot) {
+	public Bewerbung createBewerbung(Arbeitsuchender arbeitssuchender,Stellenangebot stellenangebot) {
 		return new Bewerbung();
 	}
 
+	@TextSyntax("Das Ergebnis ist eine valide Bewerbung.")
+	public void istEinArtefakt(Bewerbung bewerbung) {
+		Assert.assertNotNull(bewerbung);
+	}
+	
 	@TextSyntax("Der Arbeitgeber stellt stellt den Arbeitssuchenden der Bewerbung zum Stellenangebot ein.")
 	public void einstellenArbeitssuchenden(Bewerbung bewerbung) {
 		Assert.assertTrue(false);
