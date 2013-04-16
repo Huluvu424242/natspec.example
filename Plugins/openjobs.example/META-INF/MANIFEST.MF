@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: NatSpec Examples Project
+Bundle-SymbolicName: de.devboost.natspec.examples
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.junit4,
+ de.devboost.natspec.annotations

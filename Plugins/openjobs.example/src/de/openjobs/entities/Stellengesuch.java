@@ -1,5 +1,5 @@
 package de.openjobs.entities;
 
-public class Arbeitgeber {
+public class Stellengesuch {
 
 }
