@@ -16,14 +16,14 @@ public class TestDriver {
 	}
 
 	@TextSyntax("Das Ergebnis ist ein Artefakt.")
-	public void istEinArtefakt(Object ergebnis) {
+	public void istEinArtefakt(Stellenangebot ergebnis) {
 		Assert.assertNotNull(ergebnis);
 	}
 
 
 	@TextSyntax("Die Anzahl der Stellen wird auf #1 begrenzt.")
-	public void maxStellen(Integer anzahl) {
-		Assert.assertTrue(false);
+	public void setzeMaxAnzahlStellen(Stellenangebot stellenangebot,Integer anzahl) {
+		stellenangebot.setAnzahlStellen(anzahl);
 	}
 
 	@TextSyntax("Das Stellenangebot kann auf #1 Stelle(n) vermittelt werden.")
@@ -36,6 +36,12 @@ public class TestDriver {
 		return new Stellengesuch();
 	}
 
+	@TextSyntax("Das Ergebnis ist ein Artefakt.")
+	public void istEinArtefakt(Stellengesuch ergebnis) {
+		Assert.assertNotNull(ergebnis);
+	}
+
+	
 	@TextSyntax("Der Arbeitssuchende erstellt eine Bewerbung zu einem Stellenangebot.")
 	public Bewerbung createBewerbung(Stellenangebot stellenangebot) {
 		return new Bewerbung();
