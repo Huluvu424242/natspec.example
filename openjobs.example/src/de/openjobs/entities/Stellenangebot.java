@@ -12,4 +12,8 @@ public class Stellenangebot {
 		this.anzahlStellen=anzahl;		
 	}
 
+	public void verringereStellenUm(Integer i) {
+		this.anzahlStellen--;
+	}
+
 }

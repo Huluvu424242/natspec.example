@@ -1,2 +1,1 @@
-equals, is
-result, sum
+Arbeitssuchender, Arbeitssuchende

@@ -1,20 +1,21 @@
 Registrierung Arbeitgeber.
-Das Ergebnis ist ein gültiger Arbeitgeber.
+Es liegt ein gültiger Arbeitgeber vor.  
 
 Der Arbeitgeber erstellt ein Stellenangebot.
-Das Ergebnis ist ein valides Stellenangebot.
+Es liegt ein valides Stellenangebot vor. 
 
 Die Anzahl der Stellen vom Stellenangebot wird auf 1 begrenzt.
-Das Stellenangebot kann auf 1 Stelle(n) vermittelt werden.
-
-Der Arbeitssuchende erstellt ein Stellengesuch.
-Das Ergebnis ist ein valides Stellengesuch.
+Jetzt kann das Stellenangebot noch auf 1 Stelle(n) vermittelt werden.
 
 Registrierung Arbeitssuchender.
-Das Ergebnis ist ein registrierter Arbeitssuchender. 
+Es liegt ein registrierter Arbeitssuchender vor.
 
-Ein Arbeitssuchender erstellt eine Bewerbung zu einem Stellenangebot.
-Das Ergebnis ist eine valide Bewerbung. 
-Der Arbeitgeber stellt den Arbeitssuchenden der Bewerbung zum Stellenangebot ein.
-Als Ergebnis wird kein Fehler erwartet.
-Der Arbeitssuchende erstellt eine Bewerbung zu einem Stellenangebot.
+Der registrierte Arbeitssuchende erstellt zum Stellenangebot eine Bewerbung.
+Damit liegt eine gültige Bewerbung vor. 
+
+Eine Stelle vom Stellenangebot wird besetzt. 
+Jetzt kann das Stellenangebot noch auf 0 Stelle(n) vermittelt werden.
+
+Der Arbeitssuchende erstellt ein Stellengesuch. 
+Es liegt ein valides Stellengesuch vor.
+
