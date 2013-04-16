@@ -2,8 +2,15 @@ package de.openjobs.entities;
 
 public class Bewerbung {
 
-	public Bewerbung erstellenZum(Stellenangebot stellenAngebot){
-		return null;
+	private Stellenangebot stellenangebot;
+
+	public Stellenangebot getStellenangebot() {
+		return stellenangebot;
 	}
+
+	public Bewerbung(Stellenangebot stellenangebot) {
+		this.stellenangebot=stellenangebot;
+	}
+
 	
 }

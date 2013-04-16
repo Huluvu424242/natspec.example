@@ -9,17 +9,28 @@ public class TestDriver {
 		super();
 	}
 
+	@TextSyntax("Registrierung Arbeitgeber.")
+	public Arbeitgeber registriereArbeitgeber() {
+		return new Arbeitgeber();
+	}
+	
+	@TextSyntax("Das Ergebnis ist ein gültiger Arbeitgeber.")
+	public void istEinArbeitssuchender(Arbeitgeber ergebnis) {
+		Assert.assertNotNull(ergebnis);
+	}
+	
+	
+	
 	@TextSyntax("Der Arbeitgeber erstellt ein Stellenangebot.")
-	public Stellenangebot createStellenangebot() {
+	public Stellenangebot erstelleStellenangebot() {
 		final Arbeitgeber arbeitgeber = new Arbeitgeber();
 		return arbeitgeber.erstelleStellenangebot();
 	}
 
-	@TextSyntax("Das Ergebnis ist ein Artefakt.")
-	public void istEinArtefakt(Stellenangebot ergebnis) {
+	@TextSyntax("Das Ergebnis ist ein valides Stellenangebot.")
+	public void istEinStellenangebot(Stellenangebot ergebnis) {
 		Assert.assertNotNull(ergebnis);
 	}
-
 
 	@TextSyntax("Die Anzahl der Stellen vom Stellenangebot wird auf #2 begrenzt.")
 	public void setzeMaxAnzahlStellen(Stellenangebot stellenangebot,Integer anzahl) {
@@ -37,20 +48,32 @@ public class TestDriver {
 		return new Stellengesuch();
 	}
 
-	@TextSyntax("Das Ergebnis ist ein Artefakt.")
-	public void istEinArtefakt(Stellengesuch ergebnis) {
+	@TextSyntax("Das Ergebnis ist ein valides Stellengesuch.")
+	public void istEinStellengesuch(Stellengesuch ergebnis) {
 		Assert.assertNotNull(ergebnis);
 	}
 	
-	@TextSyntax("Der Arbeitssuchende erstellt eine Bewerbung zu einem Stellenangebot.")
-	public Bewerbung createBewerbung(Arbeitsuchender arbeitssuchender,Stellenangebot stellenangebot) {
-		return new Bewerbung();
+	@TextSyntax("Registrierung Arbeitssuchender.")
+	public Arbeitssuchender registriereArbeitssuchender() {
+		return new Arbeitssuchender();
+	}
+	
+	@TextSyntax("Das Ergebnis ist ein registrierter Arbeitssuchender.")
+	public void istEinArbeitssuchender(Arbeitssuchender ergebnis) {
+		Assert.assertNotNull(ergebnis);
+	}
+	
+	@TextSyntax("Ein Arbeitssuchender erstellt eine Bewerbung zu einem Stellenangebot.")
+	public Bewerbung createBewerbung(Arbeitssuchender arbeitssuchender,Stellenangebot stellenangebot) {
+		return arbeitssuchender.erstelleBewerbung(stellenangebot);
 	}
 
 	@TextSyntax("Das Ergebnis ist eine valide Bewerbung.")
-	public void istEinArtefakt(Bewerbung bewerbung) {
-		Assert.assertNotNull(bewerbung);
+	public void istEineBewerbung(Bewerbung ergebnis) {
+		Assert.assertNotNull(ergebnis);
 	}
+	
+	
 	
 	@TextSyntax("Der Arbeitgeber stellt stellt den Arbeitssuchenden der Bewerbung zum Stellenangebot ein.")
 	public void einstellenArbeitssuchenden(Bewerbung bewerbung) {
