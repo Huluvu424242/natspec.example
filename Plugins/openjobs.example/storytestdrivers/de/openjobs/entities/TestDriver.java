@@ -9,26 +9,36 @@ public class TestDriver {
 		super();
 	}
 
+	@TextSyntax("Registrierung Arbeitgeber.")
+	public Arbeitgeber registriereArbeitgeber() {
+		return new Arbeitgeber();
+	}
+	
+	@TextSyntax("Es liegt ein gültiger #1 vor.")
+	public void istEinArbeitssuchender(Arbeitgeber arbeitgeber) {
+		Assert.assertNotNull(arbeitgeber);
+	}
+	
 	@TextSyntax("Der Arbeitgeber erstellt ein Stellenangebot.")
-	public Stellenangebot createStellenangebot() {
+	public Stellenangebot erstelleStellenangebot() {
 		final Arbeitgeber arbeitgeber = new Arbeitgeber();
 		return arbeitgeber.erstelleStellenangebot();
 	}
 
-	@TextSyntax("Das Ergebnis ist ein Artefakt.")
-	public void istEinArtefakt(Stellenangebot ergebnis) {
-		Assert.assertNotNull(ergebnis);
+	@TextSyntax("Es liegt ein valides #1 vor.")
+	public void istEinStellenangebot(Stellenangebot stellenangebot) {
+		Assert.assertNotNull(stellenangebot);
 	}
 
-
-	@TextSyntax("Die Anzahl der Stellen wird auf #1 begrenzt.")
+	@TextSyntax("Die Anzahl der Stellen vom #1 wird auf #2 begrenzt.")
 	public void setzeMaxAnzahlStellen(Stellenangebot stellenangebot,Integer anzahl) {
 		stellenangebot.setAnzahlStellen(anzahl);
 	}
 
-	@TextSyntax("Das Stellenangebot kann auf #1 Stelle(n) vermittelt werden.")
-	public void vermittelbarAufStellen(Integer anzahl) {
-		Assert.assertTrue(false);
+	@TextSyntax("Jetzt kann das #1 noch auf #2 Stelle(n) vermittelt werden.")
+	public void vermittelbarAufStellen(Stellenangebot stellenangebot,Integer anzahl) {
+		final Integer stellen=stellenangebot.getAnzahlStellen();
+		Assert.assertEquals(anzahl, stellen);
 	}
 
 	@TextSyntax("Der Arbeitssuchende erstellt ein Stellengesuch.")
@@ -36,28 +46,39 @@ public class TestDriver {
 		return new Stellengesuch();
 	}
 
-	@TextSyntax("Das Ergebnis ist ein Artefakt.")
-	public void istEinArtefakt(Stellengesuch ergebnis) {
-		Assert.assertNotNull(ergebnis);
+	@TextSyntax("Es liegt ein valides #1 vor.")
+	public void istEinStellengesuch(Stellengesuch stellengesuch) {
+		Assert.assertNotNull(stellengesuch);
 	}
+	
+	@TextSyntax("Registrierung Arbeitssuchender.")
+	public Arbeitssuchender registriereArbeitssuchender() {
+		return new Arbeitssuchender();
+	}
+	
+	@TextSyntax("Es liegt ein registrierter #1 vor.")
+	public void istEinArbeitssuchender(Arbeitssuchender arbeitssuchender) {
+		Assert.assertNotNull(arbeitssuchender);
+	}
+	
+	@TextSyntax("Der registrierte #1 erstellt zum #2 eine Bewerbung.")
+	public Bewerbung bewirbtSichAufStellenangebot(Arbeitssuchender arbeitssuchender, Stellenangebot stellenangebot) {
+		return arbeitssuchender.erstelleBewerbung(stellenangebot);
+	}
+
+	@TextSyntax("Damit liegt eine gültige Bewerbung vor.")
+	public void istEineBewerbung(Bewerbung bewerbung) {
+		Assert.assertNotNull(bewerbung);
+	}
+	
+
+	@TextSyntax("Eine Stelle vom #1 wird besetzt.")
+	public void einstellenArbeitssuchenden(Stellenangebot stellenangebot) {
+		stellenangebot.verringereStellenUm(1);
+	}
+
 
 	
-	@TextSyntax("Der Arbeitssuchende erstellt eine Bewerbung zu einem Stellenangebot.")
-	public Bewerbung createBewerbung(Stellenangebot stellenangebot) {
-		return new Bewerbung();
-	}
-
-	@TextSyntax("Der Arbeitgeber stellt stellt den Arbeitssuchenden der Bewerbung zum Stellenangebot ein.")
-	public void einstellenArbeitssuchenden(Bewerbung bewerbung) {
-		Assert.assertTrue(false);
-	}
-
-
-	@TextSyntax("Als Ergebnis wird kein Fehler erwartet.")
-	public void noException(Object ergebnis) {
-		Assert.assertTrue(false);
-	}
-
 	
 
 }
