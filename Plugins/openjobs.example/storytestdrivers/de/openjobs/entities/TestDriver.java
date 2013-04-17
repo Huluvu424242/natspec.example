@@ -9,7 +9,7 @@ public class TestDriver {
 		super();
 	}
 
-	@TextSyntax("Registrierung Arbeitgeber.")
+	@TextSyntax("Registrierung eines Arbeitgeber.")
 	public Arbeitgeber registriereArbeitgeber() {
 		return new Arbeitgeber();
 	}
@@ -51,7 +51,7 @@ public class TestDriver {
 		Assert.assertNotNull(stellengesuch);
 	}
 	
-	@TextSyntax("Registrierung Arbeitssuchender.")
+	@TextSyntax("Registrierung eines Arbeitssuchenden.")
 	public Arbeitssuchender registriereArbeitssuchender() {
 		return new Arbeitssuchender();
 	}
@@ -61,6 +61,13 @@ public class TestDriver {
 		Assert.assertNotNull(arbeitssuchender);
 	}
 	
+	
+	/**
+	 * 
+	 * @param arbeitssuchender
+	 * @param stellenangebot
+	 * @return Bewerbung
+	 */
 	@TextSyntax("Der registrierte #1 erstellt zum #2 eine Bewerbung.")
 	public Bewerbung bewirbtSichAufStellenangebot(Arbeitssuchender arbeitssuchender, Stellenangebot stellenangebot) {
 		return arbeitssuchender.erstelleBewerbung(stellenangebot);
@@ -70,15 +77,18 @@ public class TestDriver {
 	public void istEineBewerbung(Bewerbung bewerbung) {
 		Assert.assertNotNull(bewerbung);
 	}
-	
 
-	@TextSyntax("Eine Stelle vom #1 wird besetzt.")
-	public void einstellenArbeitssuchenden(Stellenangebot stellenangebot) {
+	@TextSyntax("Der #1 wird vom #2 eingestellt und damit wird eine Stelle des #3 besetzt.")
+	public void einstellenArbeitssuchenden(Arbeitssuchender arbeitssuchender, Arbeitgeber arbeitgeber, Stellenangebot stellenangebot  ) {
 		stellenangebot.verringereStellenUm(1);
 	}
 
-
 	
+
+//	@TextSyntax("Der Arbeitssuchende erstellt die Vorlage für eine Bewerbung.")
+//	public Bewerbung erstelleBewerbung() {
+//		return new Bewerbung();
+//	}
 	
 
 }

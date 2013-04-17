@@ -12,5 +12,9 @@ public class Bewerbung {
 		this.stellenangebot=stellenangebot;
 	}
 
+	public Bewerbung() {
+		
+	}
+
 	
 }

@@ -19,7 +19,7 @@ public class StoryBewerben {
 
 	@Test
 	public void executeScript() throws Exception {
-		// Registrierung Arbeitgeber. 
+		// Registrierung eines Arbeitgeber. 
 		de.openjobs.entities.Arbeitgeber arbeitgeber_ = testDriver.registriereArbeitgeber();
 		// Es liegt ein gültiger Arbeitgeber vor. 
 		testDriver.istEinArbeitssuchender(arbeitgeber_);
@@ -31,7 +31,7 @@ public class StoryBewerben {
 		testDriver.setzeMaxAnzahlStellen(stellenangebot_, 1);
 		// Jetzt kann das Stellenangebot noch auf 1 Stelle(n) vermittelt werden. 
 		testDriver.vermittelbarAufStellen(stellenangebot_, 1);
-		// Registrierung Arbeitssuchender. 
+		// Registrierung eines Arbeitssuchenden. 
 		de.openjobs.entities.Arbeitssuchender arbeitssuchender_ = testDriver.registriereArbeitssuchender();
 		// Es liegt ein registrierter Arbeitssuchender vor. 
 		testDriver.istEinArbeitssuchender(arbeitssuchender_);
@@ -39,10 +39,14 @@ public class StoryBewerben {
 		de.openjobs.entities.Bewerbung bewerbung_Arbeitssuchende_Stellenangebot = testDriver.bewirbtSichAufStellenangebot(arbeitssuchender_, stellenangebot_);
 		// Damit liegt eine gültige Bewerbung vor. 
 		testDriver.istEineBewerbung(bewerbung_Arbeitssuchende_Stellenangebot);
-		// Eine Stelle vom Stellenangebot wird besetzt. 
-		testDriver.einstellenArbeitssuchenden(stellenangebot_);
+		// Der Arbeitssuchende wird vom Arbeitgeber eingestellt und damit wird eine Stelle des Stellenangebotes besetzt. 
+		testDriver.einstellenArbeitssuchenden(arbeitssuchender_, arbeitgeber_, stellenangebot_);
 		// Jetzt kann das Stellenangebot noch auf 0 Stelle(n) vermittelt werden. 
 		testDriver.vermittelbarAufStellen(stellenangebot_, 0);
+		// Registrierung eines Arbeitssuchenden. 
+		de.openjobs.entities.Arbeitssuchender arbeitssuchender_0 = testDriver.registriereArbeitssuchender();
+		// Es liegt ein registrierter Arbeitssuchender vor. 
+		testDriver.istEinArbeitssuchender(arbeitssuchender_);
 		// Der Arbeitssuchende erstellt ein Stellengesuch. 
 		de.openjobs.entities.Stellengesuch stellengesuch_ = testDriver.createStellengesuch();
 		// Es liegt ein valides Stellengesuch vor. 
