@@ -19,7 +19,7 @@ Jetzt kann das Stellenangebot noch auf 0 Stelle(n) vermittelt werden.
 // 2. Arbeitssuchender
 Registrierung eines Arbeitssuchenden.
 // Hier liegt ein Fehler vor -> es wird der erste AS geprüft.
-Es liegt ein registrierter Arbeitssuchender vor.
+Es liegt ein registrierter Arbeitssuchender vor. 
 
 Der Arbeitssuchende erstellt ein Stellengesuch. 
 Es liegt ein valides Stellengesuch vor.
